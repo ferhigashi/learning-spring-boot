@@ -1,0 +1,35 @@
+<html>
+<head>
+<title>Médicos</title>
+</head>
+<body>
+	  <h3>Cadastro de Médicos:</h3>
+      <form method="POST">
+            <label for="nome">Nome:</label> <input type="text" name="nome" size="100"></input><br />  
+            <label for="especialidade">Especialidade:</label> <input type="text" name="especialidade" size="100"></input><br /> 
+            <label for="crm">CRM:</label> <input type="text" name="crm" size="10"></input><br /> 
+            <br /> <input type="submit" value="Cadastrar"/>
+      </form>
+      
+      <h3>Médicos</h3>
+      <div th:unless="${#lists.isEmpty(medicos)}">
+            <dl th:each="medico : ${medicos}">
+                  <dt >
+                        Nome: <span th:text="${medico.nome}"/> 
+                        Especialidade: <span th:text="${medico.especialidade}"/> 
+                        CRM: <span th:text="${medico.crm}"/>
+                  </dt>
+            </dl>
+      </div>
+      <div th:if="${#lists.isEmpty(medicos)}">
+            <p>Nenhum Médico Cadastrado</p>
+      </div>
+      
+      <hr />
+      
+      <a href="/menuPrincipal.html">
+   	   <input type="button" value="Voltar" />
+	  </a>
+	  
+</body>
+</html>
